@@ -1,5 +1,4 @@
-import { useDispatch } from "react-redux";
-import { clearCart } from "../features/cart/cartSlice.js";
+
 import { Link, Navigate } from "react-router-dom";
 
 import {
@@ -30,7 +29,7 @@ const formatPrice = (price) =>
   });
 
 const OrderConfirmation = () => {
-  const dispatch = useDispatch();
+
   const order = getSavedOrder();
 
   if (!order) {
@@ -110,14 +109,9 @@ const OrderConfirmation = () => {
           </OrderTotal>
         </OrderSection>
 
-        <BackButton>
-          <Link
-            to="/"
-            onClick={() => dispatch(clearCart())}
-          >
-            Volver a la tienda
-          </Link>
-        </BackButton>
+       <BackButton>
+  <Link to="/">Volver a la tienda</Link>
+</BackButton>
       </ConfirmationCard>
     </Container>
   );

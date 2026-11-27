@@ -1,16 +1,48 @@
-# React + Vite
+# El Buen Mandado
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Tienda de abarrotes en línea realizada como proyecto del
+curso Full Stack Python de EBAC.
 
-Currently, two official plugins are available:
+La tienda permite buscar productos, filtrar por categorías,
+agregar productos al carrito, registrarse, iniciar sesión
+y realizar una compra de prueba.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tecnologías utilizadas
 
-## React Compiler
+- React
+- Styled-Components
+- Redux Toolkit
+- React Router
+- Vite
+- Vitest
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Cómo iniciar el proyecto
 
-## Expanding the ESLint configuration
+Instalar las dependencias:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+```
+
+Ejecutar el proyecto:
+
+```bash
+npm run dev
+```
+
+## Pruebas unitarias
+
+Ejecutar las pruebas:
+
+```bash
+npm run test:run
+```
+
+Ver la cobertura de las pruebas:
+
+```bash
+npm run test:coverage
+```
+
+Las compras son de prueba y no se realizan cobros reales.
+Las imágenes de los productos fueron generadas con IA.

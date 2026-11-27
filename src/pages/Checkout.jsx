@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, Navigate, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { clearCart } from "../features/cart/cartSlice.js";
 
 import {
   Container,
@@ -25,7 +26,8 @@ import {
 const Checkout = () => {
  
   const navigate = useNavigate();
-  const cartItems = useSelector((state) => state.cart.items);
+const dispatch = useDispatch();
+const cartItems = useSelector((state) => state.cart.items);
 
   const [address, setAddress] = useState({
     name: "",
@@ -41,7 +43,7 @@ const Checkout = () => {
 
  const [paymentMethod, setPaymentMethod] = useState("cash");
 const [paymentSaved, setPaymentSaved] = useState(false);
-
+const [orderConfirmed, setOrderConfirmed] = useState(false);
 const handlePaymentChange = (event) => {
   setPaymentMethod(event.target.value);
   setPaymentSaved(false);
@@ -72,34 +74,41 @@ const handlePaymentChange = (event) => {
     }));
   };
 
-  // Guardamos el pedido simulado y vaciamos el carrito.
-  const handleSubmit = (event) => {
-    event.preventDefault();
-     if (!paymentSaved) {
+ // Guardamos el pedido y vaciamos el carrito.
+const handleSubmit = (event) => {
+  event.preventDefault();
+
+  if (!paymentSaved) {
     alert("Primero debes guardar el método de pago.");
     return;
   }
-    const order = {
-      id: Date.now(),
-      customer: address,
-      paymentMethod,
-      items: cartItems.map((item) => ({ ...item })),
-      total: subtotal,
-      date: new Date().toISOString(),
-    };
 
-    sessionStorage.setItem(
-      "elBuenMandadoOrder",
-      JSON.stringify(order)
-    );
-
-   
-    navigate("/confirmacion", { replace: true });
+  const order = {
+    id: Date.now(),
+    customer: address,
+    paymentMethod,
+    items: cartItems.map((item) => ({ ...item })),
+    total: subtotal,
+    date: new Date().toISOString(),
   };
 
-  if (cartItems.length === 0) {
-    return <Navigate to="/carrito" replace />;
-  }
+  sessionStorage.setItem(
+    "elBuenMandadoOrder",
+    JSON.stringify(order)
+  );
+
+  setOrderConfirmed(true);
+dispatch(clearCart());
+navigate("/confirmacion", { replace: true });
+};
+
+ if (orderConfirmed) {
+  return <Navigate to="/confirmacion" replace />;
+}
+
+if (cartItems.length === 0) {
+  return <Navigate to="/carrito" replace />;
+}
 
   return (
     <Container>
