@@ -73,7 +73,7 @@ export const CategoryButton = styled.button`
   }
 `;
 
-export const ProductGrid = styled.div`
+export const ProductGrid = styled.section`
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 20px;

@@ -73,7 +73,7 @@ const Cart = () => {
                 <ItemImage src={item.image} alt={item.name} />
 
                 <ItemInfo>
-                  <h3>{item.name}</h3>
+                  <h2>{item.name}</h2>
                   <p>{formatPrice(item.price)}</p>
                 </ItemInfo>
 

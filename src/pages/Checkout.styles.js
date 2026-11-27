@@ -72,7 +72,7 @@ export const FormGroup = styled.div`
 export const Input = styled.input`
   width: 100%;
   padding: 12px;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border: 1px solid #949494;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.text};
@@ -81,7 +81,7 @@ export const Input = styled.input`
 export const Select = styled.select`
   width: 100%;
   padding: 12px;
-  border: 1px solid ${({ theme }) => theme.colors.border};
+  border: 1px solid #949494;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.white};
   color: ${({ theme }) => theme.colors.text};

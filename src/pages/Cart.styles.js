@@ -57,7 +57,7 @@ export const ItemImage = styled.img`
 export const ItemInfo = styled.div`
   flex: 1;
 
-  h3 {
+  h2 {
     margin: 0 0 8px;
     font-size: 18px;
   }

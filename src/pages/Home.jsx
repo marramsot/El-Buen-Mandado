@@ -37,9 +37,10 @@ const Home = () => {
       <Banner>
         <h1>Bienvenido a El Buen Mandado</h1>
         <p>Todo lo que necesitas, cerquita de ti.</p>
+        <p lang="en">Welcome to our store!</p>
       </Banner>
 
-      <h2>Nuestros productos</h2>
+      <h2 id="products-title">Nuestros productos</h2>
 
       <SearchInput
         type="search"
@@ -67,15 +68,15 @@ const Home = () => {
       </Categories>
 
       {filteredProducts.length > 0 ? (
-        <ProductGrid>
+        <ProductGrid aria-labelledby="products-title">
           {filteredProducts.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
         </ProductGrid>
       ) : (
-        <EmptyMessage>
-          No encontramos productos con esa búsqueda.
-        </EmptyMessage>
+        <EmptyMessage role="alert">
+  No encontramos productos con esa búsqueda.
+</EmptyMessage>
       )}
     </Container>
   );
